@@ -1,3 +1,4 @@
+<img src = "https://avatars.githubusercontent.com/u/186540820?v=4">
 Hola, Soy sophia gonzalez zapete
 
 Informacion general
@@ -17,6 +18,9 @@ tecnologias que conozco
 - Flutter
 - HTML, JS y CSS
 - Java
+
+Contacto 
+- correo: sogonzalezza@ittepic.edu.mx 
 
 pelicula
 
