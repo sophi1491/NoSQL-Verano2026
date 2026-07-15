@@ -1,0 +1,16 @@
+{
+  "name": "apibase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Actividad2.js",
+  "scripts": {
+    "start": "nodemon Actividad2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "morgan": "^1.11.0"
+  }
+}
