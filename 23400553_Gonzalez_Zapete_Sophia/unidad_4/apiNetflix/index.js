@@ -143,4 +143,6 @@ app.delete("/peliculas/:id", async (req,res) => {
     }
 });
 
-module.exports = app;
+app.listen(port, () => {
+    console.log(`Servidor iniciado en http://localhost:${port}`);
+});
