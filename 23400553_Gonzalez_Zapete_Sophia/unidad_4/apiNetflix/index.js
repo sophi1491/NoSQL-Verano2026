@@ -16,9 +16,17 @@ mongoose.connect("mongodb+srv://grupo:grupo@servidorprueba.ygegryf.mongodb.net/n
     console.log("Error al conectar con MongoDB: ",error);
 })
 
+const peliculaSchema = new mongoose.Schema({
+    titulo: String,
+    genero: String,
+    año: Number,
+    duracion: Number,
+    idioma: String,
+    calificacion: Number,
+    nc: String
+});
 
-
-const Pelicula = mongoose.model("Pelicula", peliculaSchema, "Peliculas");
+const Pelicula = mongoose.model("Pelicula", peliculaSchema, "peliculas");
 
 app.get("/peliculas", async (req,res) =>{
     try{
@@ -135,6 +143,4 @@ app.delete("/peliculas/:id", async (req,res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log("Servidor iniciado en http://localhost:"+port);
-})
+module.exports = app;
