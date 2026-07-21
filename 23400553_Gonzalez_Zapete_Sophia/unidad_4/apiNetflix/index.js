@@ -35,7 +35,7 @@ app.get("/peliculas", async (req,res) =>{
     } catch (error) {
         res.status(500).json({
             mensaje: "Error al obtener las películas",
-            error: error
+            error: error.message
         });
     }
 })
