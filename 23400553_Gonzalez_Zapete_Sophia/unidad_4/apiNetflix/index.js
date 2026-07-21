@@ -8,13 +8,23 @@ app.use(express.json());
 
 app.use(morgan("dev"));
 
-mongoose.connect("mongodb+srv://grupo:grupo@servidorprueba.ygegryf.mongodb.net/netflix")
-.then(() => {
-    console.log("Conectado correctamente a MongoDB");
-})
-.catch((error)=>{
-    console.log("Error al conectar con MongoDB: ",error);
-})
+
+let isConnected = false;
+
+const connectDB = async () => {
+    if (isConnected) return;
+    
+    await mongoose.connect("mongodb+srv://grupo:grupo@servidorprueba.ygegryf.mongodb.net/netflix", {
+        serverSelectionTimeoutMS: 5000, 
+        bufferCommands: false             
+    });
+    
+    isConnected = mongoose.connection.readyState === 1;
+    console.log("Conectado a MongoDB");
+};
+
+
+
 
 const peliculaSchema = new mongoose.Schema({
     titulo: String,
@@ -24,7 +34,9 @@ const peliculaSchema = new mongoose.Schema({
     idioma: String,
     calificacion: Number,
     nc: String
-});
+}, { 
+    bufferCommands: false  
+});;
 
 const Pelicula = mongoose.model("Pelicula", peliculaSchema, "peliculas");
 
