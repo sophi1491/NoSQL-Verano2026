@@ -11,17 +11,6 @@ app.use(morgan("dev"));
 
 let isConnected = false;
 
-const connectDB = async () => {
-    if (isConnected) return;
-    
-    await mongoose.connect("mongodb+srv://grupo:grupo@servidorprueba.ygegryf.mongodb.net/netflix", {
-        serverSelectionTimeoutMS: 5000, 
-        bufferCommands: false             
-    });
-    
-    isConnected = mongoose.connection.readyState === 1;
-    console.log("Conectado a MongoDB");
-};
 
 
 
@@ -155,6 +144,25 @@ app.delete("/peliculas/:id", async (req,res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Servidor iniciado en http://localhost:${port}`);
-});
+
+
+async function iniciarServidor() {
+    
+    try {
+
+    await mongoose.connect("mongodb+srv://grupo:grupo@servidorprueba.ygegryf.mongodb.net/netflix");
+
+    console.log("Conectado a MongoDB");
+
+    app.listen(port, () => {
+        console.log(`Servidor iniciado en http://localhost:${port}`);
+    });
+
+    }catch (error) {
+        console.error("Error al conectar a MongoDB:", error);
+        console.error(error.message);
+    }
+
+}
+
+iniciarServidor();
