@@ -1,4 +1,3 @@
-app.js
 
 const formulario = document.getElementById("formulario");
 

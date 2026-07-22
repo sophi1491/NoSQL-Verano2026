@@ -1,4 +1,4 @@
-api.js
+
 
 const API_URL = "https://api-netflix-jade.vercel.app/peliculas";
 
