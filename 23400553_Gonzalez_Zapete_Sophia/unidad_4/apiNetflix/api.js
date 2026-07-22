@@ -1,6 +1,6 @@
 
 
-const API_URL = "https://api-netflix-jade.vercel.app/peliculas";
+const API_URL = "https://api-netflix-jade.vercel.app";
 
 // Obtener películas
 async function obtenerPeliculas() {
