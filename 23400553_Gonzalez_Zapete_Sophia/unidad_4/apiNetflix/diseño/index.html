@@ -1,81 +1,98 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <title>Consumir API REST</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Películas &amp; Series</title>
 
-    <style>@import url('style.css'); </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Películas</h1>
+    <div class="page">
 
-    <h2>Registrar película</h2>
+        <header class="site-header">
+            <span class="mark" aria-hidden="true"></span>
+            <div>
+                <p class="eyebrow">Catálogo</p>
+                <h1>Películas &amp; series</h1>
+            </div>
+        </header>
 
-    <form id="formulario">
+        <main class="layout">
 
-        <input
-            type="text"
-            id="titulo"
-            placeholder="Título"
-            required
-        >
+            <section class="panel form-panel" aria-labelledby="form-title">
 
-        <input
-            type="text"
-            id="genero"
-            placeholder="Género"
-            required
-        >
+                <h2 id="form-title">Registrar entrada</h2>
+                <p class="hint">Guarda una película o serie nueva en la base de datos.</p>
 
-        <input
-            type="number"
-            id="año"
-            placeholder="Año"
-            required
-        >
+                <form id="formulario">
 
-        <input
-            type="number"
-            id="duracion"
-            placeholder="Duración"
-            required
-        >
+                    <div class="field">
+                        <label for="titulo">Título</label>
+                        <input type="text" id="titulo" placeholder="El nombre de la obra" required>
+                    </div>
 
-        <input
-            type="text"
-            id="idioma"
-            placeholder="Idioma"
-            required
-        >
+                    <div class="field">
+                        <label for="genero">Género</label>
+                        <input type="text" id="genero" placeholder="Drama, ciencia ficción…" required>
+                    </div>
 
-        <input
-            type="number"
-            id="calificacion"
-            placeholder="Calificación"
-            min="0"
-            max="10"
-            step="0.1"
-            required
-        >
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="año">Año</label>
+                            <input type="number" id="año" placeholder="2024" required>
+                        </div>
 
-        <button type="submit">
-            Guardar película
-        </button>
+                        <div class="field">
+                            <label for="duracion">Duración</label>
+                            <input type="number" id="duracion" placeholder="Minutos" required>
+                        </div>
+                    </div>
 
-    </form>
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="idioma">Idioma</label>
+                            <input type="text" id="idioma" placeholder="Español" required>
+                        </div>
 
-    <hr>
+                        <div class="field">
+                            <label for="calificacion">Calificación</label>
+                            <input type="number" id="calificacion" placeholder="0–10" min="0" max="10" step="0.1" required>
+                        </div>
+                    </div>
 
-    <button id="btnConsultar">
-        Consultar películas
-    </button>
+                    <div class="field">
+                        <label for="nc">Número de control</label>
+                        <input type="text" inputmode="numeric" id="nc" placeholder="Ej. 0001" required>
+                    </div>
 
-    <ul id="listaPeliculas"></ul>
+                    <button type="submit" class="btn-primary">Guardar</button>
+
+                </form>
+
+            </section>
+
+            <section class="panel list-panel" aria-labelledby="list-title">
+
+                <div class="list-header">
+                    <h2 id="list-title">Catálogo</h2>
+                    <button id="btnConsultar" class="btn-secondary" type="button">Consultar</button>
+                </div>
+
+                <ul id="listaPeliculas" class="ticket-grid"></ul>
+
+            </section>
+
+        </main>
+
+    </div>
 
     <script src="api.js"></script>
     <script src="app.js"></script>
