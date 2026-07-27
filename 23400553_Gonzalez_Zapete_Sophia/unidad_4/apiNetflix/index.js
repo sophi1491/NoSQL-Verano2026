@@ -14,9 +14,6 @@ app.use(morgan("dev"));
 let isConnected = false;
 
 
-
-
-
 const peliculaSchema = new mongoose.Schema({
     titulo: String,
     genero: String,
